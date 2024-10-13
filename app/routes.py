@@ -22,11 +22,12 @@ def home():
 
     elif request.method == "POST":
         # User's input: should get from form here using request...
-        interests = "Marine technology, Sustainability"
-        skills = "Technical expertise, Software development, Maritime regulations"
-        certs = "Bachelor of Environmental Studies [Degree]"
-        jobhist = "Environmental Compliance Officer"
-        psa_courses = "Adaptability"
+        interests = request.form.get("interests")
+        skills = request.form.get("skills")
+        certs = request.form.get("qualification")
+        jobhist = request.form.get("exp")
+        psa_courses = request.form.get("psatraining")
+        job_preference = request.form.get("pref")
 
         # Combine inputs into one sentence
         sentence = f'''
@@ -34,7 +35,8 @@ def home():
         Skills: {skills},
         Certifications: {certs},
         Job History: {jobhist},
-        PSA courses taken: {psa_courses}
+        PSA courses taken: {psa_courses},
+        Job Preference: {job_preference}
         '''
 
         # Encode the sentence into an embedding vector
@@ -53,10 +55,12 @@ def home():
         # Sort by similarity score in descending order
         temp_df = temp_df.sort_values(by='similarity_score', ascending=False)
 
-        # Serve top 3 results
-        top_3_jobs = temp_df.head(3)
+        # Serve top 10 results
+        top_10_jobs = temp_df.head(10)
 
-        print(top_3_jobs)
+        print(top_10_jobs)
+
+        # reranker goes here
 
         return "Under development"
     else:
