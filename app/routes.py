@@ -39,9 +39,11 @@ def home():
 
         '''
         
+        # encode sentence using the model
         embeddings = model.encode([sentence])
 
         # compute cosine similarity, then add as a new column into pandas, rearrange by the cosine similarity
+        
 
         # reranking done here
         # return render_template("index.html", embeddings = embeddings)
