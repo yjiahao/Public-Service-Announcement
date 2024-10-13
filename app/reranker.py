@@ -7,7 +7,7 @@ load_dotenv()
 
 os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
 # Initialize the language model
-llm = ChatOpenAI(model="gpt-4o-mini")
+llm = ChatOpenAI(model="gpt-4o-mini", temperature = 0)
 
 
 
@@ -22,6 +22,9 @@ def re_rank_jobs(user_profile, job_list):
     1. A **degree** and a **diploma** are not equivalent.
     2. If a job requires a **degree**, having a **diploma**, even in a relevant field, does **not** meet this requirement.
     3. If the user does not meet the minimum educational requirements, the **Rating must be 1**, regardless of other factors.
+    4. Assign a rating based strictly on the user's alignment with the job requirements.
+    5. Use only the information provided; do not make assumptions.
+    6. Provide the output strictly in the requested format.
     
     Given the following user profile and a job description, rate the suitability of the job for the user on a scale from 1 to 10 (10 being a perfect match).
     Give bonus points if the user has a related degree or diploma to what is required in the job.
@@ -118,8 +121,8 @@ else:
     top_k = 3
     top_three_jobs = filtered_jobs[:top_k]
 
-    # Display the top three jobs
-    print("Top Three Job Recommendations:")
+    # Display the up to top three jobs
+    print("Job Recommendations:")
     for idx, job_info in enumerate(top_three_jobs, start=1):
         job = job_info['job']
         print("-" * 60)
