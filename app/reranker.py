@@ -17,6 +17,11 @@ def re_rank_jobs(user_profile, job_list):
     for index, job in job_list.iterrows():
         prompt = f"""
     You are an expert career advisor.
+
+    *Important Notes (Please read carefully):**
+    1. A **degree** and a **diploma** are not equivalent.
+    2. If a job requires a **degree**, having a **diploma**, even in a relevant field, does **not** meet this requirement.
+    3. If the user does not meet the minimum educational requirements, the **Rating must be 1**, regardless of other factors.
     
     Given the following user profile and a job description, rate the suitability of the job for the user on a scale from 1 to 10 (10 being a perfect match).
     Give bonus points if the user has a related degree or diploma to what is required in the job.
