@@ -1,5 +1,12 @@
 # Public Service Announcement
 
+## Before runnning the app
+
+Install the required packages
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 
