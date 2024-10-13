@@ -1,12 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>My First Webpage</title>
-  </head>
-  <body>
-    <p>Hello Sir!</p>
-    <!-- <p>Embeddings are: {{embeddings}}</p> : uncomment when we actually want to serve up results -->
-  </body>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="UTF-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PSA Recommender</title>
+    </head>
+    <body>
+        <div>
+            <main>
+                <section>
+                    <h1>PSA Recommender</h1>
+                    <p>Enter your details below to get a recommendation</p>
+                </section>
+                <hr>
+                <form id="recommender" method="POST" autocmplete = "off">                
+                    <fieldset>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="employeeid">Employee ID:</label>
+                        <input type="text" id="employeeid" name="employeeid" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="currjob">Current Job:</label>
+                        <input type="text" id="currjob" name="currjob" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="pref">Preferences:</label>
+                        <input type="text" id="pref" name="pref" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="psatraining">PSA Training:</label>
+                        <input type="text" id="psatraining" name="psatraining" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="exp">Past Job Experience:</label>
+                        <input type="text" id="exp" name="exp" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="skills">Skills:</label>
+                        <input type="text" id="skills" name="skills" required>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <label for="qualification">Qualification:</label>
+                        <input type="text" id="qualification" name="qualification" required>
+                    </fieldset>
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+            </main>
+        </div>
+    </body>
 </html>
