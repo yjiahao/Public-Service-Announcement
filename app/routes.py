@@ -22,9 +22,28 @@ def home():
     elif request.method == "POST":
         # create vector embeddings of the sentences user types in, then perform vector search here as well
         # arrange the rows and return top k relevant results
+        interests = request.args.get("interest")
+        skills = request.args.get("skills")
+        certs = request.args.get("certifications")
+        jobhist = request.args.get("job_history")
+        psa_courses = request.args.get("psa_courses")
+
+        # combine into one sentence before encoding
+        sentence = f'''
+
+        Interests: {interests},
+        Skills: {skills},
+        Certifications: {certs},
+        Job History: {jobhist},
+        PSA courses taken: {psa_courses}
+
+        '''
         
-        # sentences = ["This is an example sentence"]
-        # embeddings = model.encode(sentences)
+        embeddings = model.encode([sentence])
+
+        # compute cosine similarity, then add as a new column into pandas, rearrange by the cosine similarity
+
+        # reranking done here
         # return render_template("index.html", embeddings = embeddings)
         return "Under development"
     else:
