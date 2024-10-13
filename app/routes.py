@@ -1,5 +1,7 @@
+import os
+
 from app import app
-from flask import request, abort, render_template, url_for
+from flask import request, abort, render_template, url_for, redirect
 from sklearn.metrics.pairwise import cosine_similarity
 
 import json
@@ -7,7 +9,13 @@ import json
 import pandas as pd
 import numpy as np
 
+from dotenv import load_dotenv
+
 from sentence_transformers import SentenceTransformer
+
+from langchain_openai import ChatOpenAI
+
+load_dotenv()
 
 # load pretrained encoding model, takes a while to load
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -61,7 +69,12 @@ def home():
         print(top_10_jobs)
 
         # reranker goes here
-
-        return "Under development"
+        recommendations = "Hello"
+        return redirect(url_for("results", recommendations = recommendations))
     else:
         abort(400, description="Request method not supported")
+
+@app.route("/results")
+def results():
+    recommendations = request.args.get("recommendations")
+    return render_template("results.html", recommendations = recommendations)

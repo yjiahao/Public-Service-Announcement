@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PSA Recommendations</title>
+    </head>
+    <body>
+        <h1>PSA Recommendations</h1>
+        <p>Here are your recommendations</p>
+        <a href="{{ url_for('home') }}">Go back to Recommender</a>
+        <br>
+        <br>
+        <fieldset>
+            <legend>Recommendations</legend>
+            <p>{{ recommendations }}</p>
+        </fieldset>
+    </body>
+</html>
