@@ -110,7 +110,7 @@ job_df = pd.read_csv(job_file, encoding='utf-8')
 user_file = "MOCK_DATA (6).csv"
 
 user_df = pd.read_csv(user_file, encoding='utf-8')
-user = user_df.iloc[328] #Data science and artificial intelligence
+user = user_df.iloc[328] # Bachelor of Engineering with Honours in Electrical Power Engineering [Degree]
 ###############
 re_ranked_jobs = re_rank_jobs(user, job_df)
 filtered_jobs = [job for job in re_ranked_jobs if job['rating'] >= 5]
