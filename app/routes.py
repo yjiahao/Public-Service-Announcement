@@ -6,7 +6,7 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 
 # load pretrained encoding model, takes a while to load
-# model = SentenceTransformer("sentence-transformers/all-mpnet-base-v2")
+# model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # test route for home
 @app.route("/", methods = ["GET", "POST"])
